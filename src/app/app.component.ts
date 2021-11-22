@@ -55,6 +55,7 @@ export class AppComponent implements OnInit {
     if (term === '') {
       return of([]);
     }
-    return this.httpClient.get();
+    // return this.httpClient.get();
+    return of([]);
   }
 }
