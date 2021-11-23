@@ -37,17 +37,17 @@ export class AppComponent implements OnInit {
       )
       .subscribe((text: string) => {
         this.isSearching = true;
-        this.searchGetCall(text).subscribe(
-          (res) => {
+        this.searchGetCall(text).subscribe({
+          next: (res) => {
             console.log('res', res);
             this.isSearching = false;
             this.apiResponse = res;
           },
-          (err) => {
+          error: (err) => {
             this.isSearching = false;
             console.log('error', err);
           }
-        );
+        });
       });
   }
 
