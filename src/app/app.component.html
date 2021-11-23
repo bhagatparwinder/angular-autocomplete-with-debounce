@@ -12,20 +12,15 @@
   </div>
   <div class="row">
     <ng-container *ngIf="apiResponse['Response'] == 'False'; else elseTemplate">
-
       <div class="col-12 text-center">
         <div class="alert alert-danger" role="alert">
           {{apiResponse['Error']}}
 
         </div>
       </div>
-
     </ng-container>
     <ng-template #elseTemplate>
-
-
       <div class="col-3" *ngFor="let movie of apiResponse['Search']">
-
         <div class="card" style="margin:5px;">
           <img class="card-img-top" src="{{movie['Poster']}}">
           <div class="card-body">
@@ -34,7 +29,6 @@
           </div>
         </div>
       </div>
-
     </ng-template>
   </div>
 </div>
