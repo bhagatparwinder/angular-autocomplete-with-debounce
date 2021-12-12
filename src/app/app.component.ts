@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
           error: (err) => {
             this.isSearching = false;
             console.log('error', err);
-          }
+          },
         });
       });
   }
@@ -55,7 +55,89 @@ export class AppComponent implements OnInit {
     if (term === '') {
       return of([]);
     }
-    // return this.httpClient.get();
-    return of([]);
+
+    // return of([{ error: true }]);
+    return of([
+      {
+        street_line: '142 Park Ave',
+        secondary: '',
+        city: 'Glendale Heights',
+        state: 'IL',
+        zipcode: '60108',
+        entries: 0,
+      },
+      {
+        street_line: '142 Park Hill Trl',
+        secondary: '',
+        city: 'Glendale Heights',
+        state: 'IL',
+        zipcode: '60188',
+        entries: 0,
+      },
+      {
+        street_line: '142 Paramount Dr',
+        secondary: '',
+        city: 'Wood Dale',
+        state: 'IL',
+        zipcode: '60191',
+        entries: 0,
+      },
+      {
+        street_line: '142 Parkview Dr',
+        secondary: '',
+        city: 'Wauconda',
+        state: 'IL',
+        zipcode: '60084',
+        entries: 0,
+      },
+      {
+        street_line: '142 Parkview Dr',
+        secondary: '',
+        city: 'Trenton',
+        state: 'IL',
+        zipcode: '62293',
+        entries: 0,
+      },
+      {
+        street_line: '142 S Parkside Ave',
+        secondary: '',
+        city: 'Glendale Heights',
+        state: 'IL',
+        zipcode: '60137',
+        entries: 0,
+      },
+      {
+        street_line: '142 E Park St',
+        secondary: '',
+        city: 'Arthur',
+        state: 'IL',
+        zipcode: '61911',
+        entries: 0,
+      },
+      {
+        street_line: '142 N Park Ave',
+        secondary: '',
+        city: 'Waukegan',
+        state: 'IL',
+        zipcode: '60085',
+        entries: 0,
+      },
+      {
+        street_line: '142 W Park Ave',
+        secondary: 'Unit',
+        city: 'Sugar Grove',
+        state: 'IL',
+        zipcode: '60554',
+        entries: 4,
+      },
+      {
+        street_line: '142 W Park Ave',
+        secondary: '',
+        city: 'Collinsville',
+        state: 'IL',
+        zipcode: '62234',
+        entries: 0,
+      },
+    ]);
   }
 }

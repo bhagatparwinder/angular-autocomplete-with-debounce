@@ -2,32 +2,28 @@
   <div class="row">
     <div class="col-12 text-center">
       <h1>Address Autocomplete</h1>
-      <input type="text" #addressSearchInput class="form-control" placeholder="Street Address" />
+      <input
+        type="text"
+        #addressSearchInput
+        class="form-control"
+        placeholder="Street Address"
+      />
     </div>
   </div>
   <div class="row" *ngIf="isSearching">
     <div class="col-12 text-center">
-      <h4>Searching ... </h4>
+      <h4>Searching ...</h4>
     </div>
   </div>
   <div class="row">
-    <ng-container *ngIf="apiResponse['Response'] == 'False'; else elseTemplate">
+    <ng-container *ngIf="apiResponse[0]?.error; else elseTemplate">
       <div class="col-12 text-center">
-        <div class="alert alert-danger" role="alert">
-          {{apiResponse['Error']}}
-
-        </div>
+        <div class="alert alert-danger" role="alert">Address not found</div>
       </div>
     </ng-container>
     <ng-template #elseTemplate>
-      <div class="col-3" *ngFor="let movie of apiResponse['Search']">
-        <div class="card" style="margin:5px;">
-          <img class="card-img-top" src="{{movie['Poster']}}">
-          <div class="card-body">
-            <h5 class="card-title">{{movie['Title']}}</h5>
-            <p class="card-text">Year: {{movie['Year']}}</p>
-          </div>
-        </div>
+      <div class="col-3" *ngFor="let address of apiResponse">
+        <p>{{ address.street_line }}</p>
       </div>
     </ng-template>
   </div>
